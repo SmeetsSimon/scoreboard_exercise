@@ -3,7 +3,8 @@ def update_score(oldscore, team):
     de oude stand "oldscore" als "team" net gescoord heeft.
     De nieuwe stand wordt als resultaat teruggegeven.
 
-    oldscore: een tuple van 4 nummers, set thuis, set away, punten thuis, punten away
+    oldscore: een tuple van 4 nummers, set thuis, set away, punten thuis,
+    punten away
     team: de ploeg die net scoorde, "H" voor thuis, "A" voor away
     """
     sets_home = oldscore[0]

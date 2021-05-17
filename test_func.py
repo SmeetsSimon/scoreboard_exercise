@@ -176,7 +176,8 @@ testdata = [
     ((0, 0, 25, 24), "H", (1, 0, 0, 0)),
 ]
 
-# Onderstaandde functie hoeven jullie niet te begrijpen.
+
+# Onderstaande functie hoeven jullie niet te begrijpen.
 @pytest.mark.parametrize("oldscore,team,expected", testdata)
 def test_update_scores(oldscore, team, expected):
     new_score = update_score(oldscore, team)
