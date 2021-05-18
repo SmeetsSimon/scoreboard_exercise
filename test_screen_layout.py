@@ -1,5 +1,3 @@
-import pytest
-
 from solution_screen_layout import Layout
 
 
