@@ -2,7 +2,6 @@ def update_score(oldscore, team):
     """Deze functie berekent de nieuwe stand, vertrekkend van
     de oude stand "oldscore" als "team" net gescoord heeft.
     De nieuwe stand wordt als resultaat teruggegeven.
-
     oldscore: een tuple van 4 nummers, set thuis, set away, punten thuis,
     punten away
     team: de ploeg die net scoorde, "H" voor thuis, "A" voor away
@@ -13,45 +12,43 @@ def update_score(oldscore, team):
     points_away = oldscore[3]
 
     # schrijf hier de nodige code om de testen te doen slagen
-    last_set = True
-    if sets_h == 2 and sets_a == 2:
-        pass
+    lastset = False
+
+    if sets_home == 2 and sets_away == 2:
+        lastset = True
 
     if team == "H":
-        points_h += 1
+        points_home += 1
 
     if team == "A":
-        points_a += 1
+        points_away += 1
 
-    if last_set == False:
-        if points_h >= 25:
-            if abs(points_h - points_a) == 2:
-                points_h = 0
-                points_a = 0
-                sets_h += 1
+    if lastset == False:
+        if points_home >= 25:
+            if points_away < points_home - 1:
+                points_home = 0
+                points_away = 0
+                sets_home += 1
 
-    if last_set == False:
-        if points_a >= 25:
-            if abs(points_a - points_h) == 2:
-                points_h = 0
-                points_a = 0
-                sets_a += 1
+    if lastset == False:
+        if points_away >= 25:
+            if points_home < points_away -1:
+                points_home = 0
+                points_away = 0
+                sets_away += 1
 
-    if last_set == True:
-        if points_h >= 15:
-            if points_a < points_h - 1:
-                points_h = 0
-                points_a = 0
-                sets_h += 1
+    if lastset == True:
+        if points_home >= 15:
+            if points_away < points_home - 1:
+                points_home = 0
+                points_away = 0
+                sets_home += 1
 
-    if last_set == True:
-        if points_a >= 15:
-            if points_h < points_a -1:
-                points_h = 0
-                points_a = 0
-                sets_a += 1
+    if lastset == True:
+        if points_away >= 15:
+            if points_home < points_away -1:
+                points_home = 0
+                points_away = 0
+                sets_away += 1
 
-    return sets_h, sets_a, points_h, points_a
-
-
-
+    return sets_home, sets_away, points_home, points_away
